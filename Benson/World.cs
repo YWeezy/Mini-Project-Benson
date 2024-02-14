@@ -35,7 +35,6 @@ public static class World
         PopulateQuests();
         PopulateLocations();
 
-        Quests.AddRange(Quests.storyQuestsQuests.GetInitialQuests());
     }
 
 
@@ -68,7 +67,7 @@ public static class World
                 QUEST_ID_CLEAR_ALCHEMIST_GARDEN,
                 "Clear the alchemist's garden",
                 "Kill rats in the alchemist's garden ");
-
+        clearAlchemistGarden.LocationIds.Add(LOCATION_ID_ALCHEMISTS_GARDEN);
 
 
         Quest clearFarmersField =
@@ -76,14 +75,14 @@ public static class World
                 QUEST_ID_CLEAR_FARMERS_FIELD,
                 "Clear the farmer's field",
                 "Kill snakes in the farmer's field");
-
+        clearFarmersField.LocationIds.Add(LOCATION_ID_FARM_FIELD);
 
         Quest clearSpidersForest =
                     new Quest(
                         QUEST_ID_COLLECT_SPIDER_SILK,
                         "Collect spider silk",
                         "Kill spiders in the spider forest");
-
+        clearSpidersForest.LocationIds.Add(LOCATION_ID_SPIDER_FIELD);
 
         Quests.Add(clearAlchemistGarden);
         Quests.Add(clearFarmersField);
@@ -207,5 +206,50 @@ public static class World
         }
 
         return null;
+    }
+}
+public class Weapon
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public int Damage { get; set; }
+
+    public Weapon(int id, string name, int damage)
+    {
+        ID = id;
+        Name = name;
+        Damage = damage;
+    }
+}
+public class Monster
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public int Damage { get; set; }
+    public int Health { get; set; }
+
+    public Monster(int id , string name, int damage, int health, int rewardExperiencePoints)
+    {
+        ID = id;
+        Name = name;
+        Damage = damage;
+        Health = health;
+    }
+}
+public class Location
+{
+    public int ID { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public Quest QuestAvailableHere { get; set; }
+    public Monster MonsterLivingHere { get; set; }
+
+    public Location(int id, string name, string description, Quest questAvailableHere, Monster monsterLivingHere)
+    {
+        ID = id;
+        Name = name;
+        Description = description;
+        QuestAvailableHere = questAvailableHere;
+        MonsterLivingHere = monsterLivingHere;
     }
 }

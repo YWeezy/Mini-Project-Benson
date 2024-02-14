@@ -13,24 +13,24 @@ class Program
 
         Location newLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
         Console.WriteLine($"You are now in {newLocation.Name}.");
-        Console.WriteLine(townSquare.Description);
+        Console.WriteLine(newLocation.Description);
 
         DisplayAvaibleQuests(newLocation);
 
 
-        Console.Readline();
+        Console.ReadLine();
     }
     static void MoveToLocation(int locationID)
     {
-        Location newLocation = World,LocationByID(locationId)
-        Console.Writeline($"Moving to {newLocation.name}......");
+        Location newLocation = World.LocationByID(locationID);
+        Console.WriteLine($"Moving to {newLocation.Name}......");
     }
     static void DisplayAvaibleQuests(Location location)
     {
         Console.WriteLine($"Quests available in {location.Name}");
         foreach (Quest quest in World.Quests)
         {
-            if (quest.IsAvailableInLocation(location.ID))
+            if (Quest.IsAvailableInLocation(location.ID))
             {
                 Console.WriteLine($"- {quest.Name}: {quest.Description}");
             }
