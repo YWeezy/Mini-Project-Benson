@@ -34,6 +34,8 @@ public static class World
         PopulateMonsters();
         PopulateQuests();
         PopulateLocations();
+
+        Quests.AddRange(Quests.storyQuestsQuests.GetInitialQuests());
     }
 
 
