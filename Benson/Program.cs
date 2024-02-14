@@ -7,7 +7,7 @@ class Program
         World.PopulateQuests();
         World.PopulateLocations();
 
-        Print("Game World Initialized", 60);
+        Print("Game World Initialized\n", 60);
         Console.WriteLine("Type 'Start' to begin the game or type 'Quit' twice to exit the game.");
         if (Console.ReadLine().ToUpper() == "START")
         {
