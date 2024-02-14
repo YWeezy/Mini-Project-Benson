@@ -243,6 +243,11 @@ public class Location
     public string Description { get; set; }
     public Quest QuestAvailableHere { get; set; }
     public Monster MonsterLivingHere { get; set; }
+    public Location LocationToNorth { get; set; }
+    public Location LocationToEast { get; set; }
+    public Location LocationToSouth { get; set; }
+    public Location LocationToWest { get; set; }
+
 
     public Location(int id, string name, string description, Quest questAvailableHere, Monster monsterLivingHere)
     {
