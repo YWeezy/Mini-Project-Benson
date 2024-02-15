@@ -3,17 +3,7 @@
 #### 1. To run the code make sure you have selected the correct **DIRECTORY**. 
 #### 2. If you have the chosen the wrong **DIRECTORY** USE (DIR) TO FIND WHICH DIRECTORY YOU ARE IN.
 #### 3. To chose the correct **DIRECTORY** use **(CD)** ***BENSON***
-
-▀█████████▄     ▄████████ ███▄▄▄▄      ▄████████  ▄██████▄  ███▄▄▄▄    
-  ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ ███    ███ ███▀▀▀██▄  
-  ███    ███   ███    █▀  ███   ███   ███    █▀  ███    ███ ███   ███  
- ▄███▄▄▄██▀   ▄███▄▄▄     ███   ███   ███        ███    ███ ███   ███   
-▀▀███▀▀▀██▄  ▀▀███▀▀▀     ███   ███ ▀███████████ ███    ███ ███   ███  
-  ███    ██▄   ███    █▄  ███   ███          ███ ███    ███ ███   ███  
-  ███    ███   ███    ███ ███   ███    ▄█    ███ ███    ███ ███   ███  
-▄█████████▀    ██████████  ▀█   █▀   ▄████████▀   ▀██████▀   ▀█   █▀ 
-
-
+#### 4. PLEASE ENJOY THE JUICE JUICE!
 
                                         ████████                        
                                       ██▓▓▒▒▒▒▓▓██                      
