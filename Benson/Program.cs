@@ -1,3 +1,5 @@
+using System;
+
 class Program
 {
     static void Main()
@@ -6,15 +8,22 @@ class Program
         World.PopulateMonsters();
         World.PopulateQuests();
         World.PopulateLocations();
+        
+        Console.Clear();
 
-        Print("Game World Initialized\n", 60);
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Console.BackgroundColor = ConsoleColor.Black;
+
+        Print("Game World Initialized\n", 60); 
+        DisplayAscii();
         Console.WriteLine("Type 'Start' to begin the game or type 'Quit' twice to exit the game.");
         if (Console.ReadLine().ToUpper() == "START")
         {
+            Console.Clear();
             Location startingLocation = World.LocationByID(World.LOCATION_ID_HOME);
             Print($"Welcome {startingLocation.Name}.", 60);
             Print(startingLocation.Description, 50);
-            Print("Do you want to move to the townsquare? (Yes/No)", 60);
+            Print("Do you want to move to the townsquare? (Yes/No\n)", 60);
 
             if (Console.ReadLine().ToUpper() == "YES")
             {
@@ -67,5 +76,47 @@ class Program
             Console.Write(c);
             System.Threading.Thread.Sleep(speed);
         }
+    }
+    public static void DisplayAscii()
+    {
+        string asciiART = @"
+
+ ▄█     █▄     ▄████████  ▄█        ▄████████  ▄██████▄    ▄▄▄▄███▄▄▄▄      ▄████████
+███     ███   ███    ███ ███       ███    ███ ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███
+███     ███   ███    █▀  ███       ███    █▀  ███    ███ ███   ███   ███   ███    █▀ 
+███     ███  ▄███▄▄▄     ███       ███        ███    ███ ███   ███   ███  ▄███▄▄▄    
+███     ███ ▀▀███▀▀▀     ███       ███        ███    ███ ███   ███   ███ ▀▀███▀▀▀    
+███     ███   ███    █▄  ███       ███    █▄  ███    ███ ███   ███   ███   ███    █▄ 
+███ ▄█▄ ███   ███    ███ ███▌    ▄ ███    ███ ███    ███ ███   ███   ███   ███    ███
+ ▀███▀███▀    ██████████ █████▄▄██ ████████▀   ▀██████▀   ▀█   ███   █▀    ██████████
+                                                                                   
+    ███      ▄██████▄ 
+▀█████████▄ ███    ███
+   ▀███▀▀██ ███    ███
+    ███   ▀ ███    ███
+    ███     ███    ███
+    ███     ███    ███
+    ███     ███    ███
+   ▄████▀    ▀██████▀ 
+                                                                                
+▀█████████▄     ▄████████ ███▄▄▄▄      ▄████████  ▄██████▄  ███▄▄▄▄    ███ ▄████████
+  ███    ███   ███    ███ ███▀▀▀██▄   ███    ███ ███    ███ ███▀▀▀██▄  █▀  ███    ███
+  ███    ███   ███    █▀  ███   ███   ███    █▀  ███    ███ ███   ███      ███    █▀ 
+ ▄███▄▄▄██▀   ▄███▄▄▄     ███   ███   ███        ███    ███ ███   ███      ███       
+▀▀███▀▀▀██▄  ▀▀███▀▀▀     ███   ███ ▀███████████ ███    ███ ███   ███      ▀███████████
+  ███    ██▄   ███    █▄  ███   ███          ███ ███    ███ ███   ███               ███
+  ███    ███   ███    ███ ███   ███    ▄█    ███ ███    ███ ███   ███         ▄█    ███
+▄█████████▀    ██████████  ▀█   █▀   ▄████████▀   ▀██████▀   ▀█   █▀        ▄████████▀ 
+                                                        
+████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄      
+███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄    
+███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███    
+███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███    
+███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███    
+███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███    
+███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███    
+████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀     
+";
+            Print(asciiART, 2);
     }
 }
