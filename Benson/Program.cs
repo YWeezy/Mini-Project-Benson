@@ -8,13 +8,13 @@ class Program
         World.PopulateMonsters();
         World.PopulateQuests();
         World.PopulateLocations();
-        
+
         Console.Clear();
 
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.BackgroundColor = ConsoleColor.Black;
 
-        Print("Game World Initialized\n", 60); 
+        Print("Game World Initialized\n", 60);
         DisplayAscii();
         Console.WriteLine("Type 'Start' to begin the game or type 'Quit' twice to exit the game.");
         if (Console.ReadLine().ToUpper() == "START")
@@ -28,10 +28,11 @@ class Program
             if (Console.ReadLine().ToUpper() == "YES")
             {
                 MoveToLocation(World.LOCATION_ID_TOWN_SQUARE);
+
             }
             else
             {
-                Print("just say yes! What's wrong with you?",50);
+                Print("just say yes! What's wrong with you?", 50);
                 Console.ReadLine();
             }
             Location newLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
@@ -47,7 +48,7 @@ class Program
         }
         else
         {
-            Print("Invalid command.",70);
+            Print("Invalid command.", 70);
         }
 
 
@@ -117,6 +118,6 @@ class Program
 ███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███    
 ████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀     
 ";
-            Print(asciiART, 2);
+        Print(asciiART, 2);
     }
 }
