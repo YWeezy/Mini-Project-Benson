@@ -235,7 +235,6 @@ public class Monster
     public Monster(int id, string name, int damage, int health, int rewardExperiencePoints)
     {
         Random random = new Random();
-
         ID = id;
         Name = name;
         Damage = (int)(damage * (0.6 + (random.NextDouble() * (1.4 - 0.6))));
