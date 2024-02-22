@@ -14,71 +14,75 @@ class Program
         Console.ForegroundColor = ConsoleColor.DarkGreen;
         Console.BackgroundColor = ConsoleColor.Black;
 
-        Print("Game World Initialized\n", 60);
-        DisplayAscii();
-        Console.WriteLine("Type 'Start' to begin the game or type 'Quit' twice to exit the game.");
-        if (Console.ReadLine().ToUpper() == "START")
+        GameLoop();
+
+        // Print("Game World Initialized\n", 60);
+        // DisplayAscii();
+        // Console.WriteLine("Type 'Start' to begin the game or type 'Quit' twice to exit the game.");
+        // if (Console.ReadLine().ToUpper() == "START")
+        // {
+        //     Console.Clear();
+        //     Location startingLocation = World.LocationByID(World.LOCATION_ID_HOME);
+        //     Print($"Welcome {startingLocation.Name}.", 60);
+        //     Print(startingLocation.Description, 50);
+        // Print("Do you want to move to the townsquare? (Yes/No\n)", 60);
+
+        // if (Console.ReadLine().ToUpper() == "YES")
+        // {
+        //     MoveToLocation(World.LOCATION_ID_TOWN_SQUARE);
+
+        // }
+        // else
+        // {
+        //     Print("just say yes! What's wrong with you?", 50);
+        //     Console.ReadLine();
+        // }
+
+        //         Location newLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
+        //         Print($"You are now in {newLocation.Name}.", 50);
+        //         Print(newLocation.Description, 60);
+
+        //         DisplayAvaibleQuests(newLocation);
+
+        //     }
+        //         else if (Console.ReadLine().ToUpper() == "QUIT")
+        //         {
+        //             Print("Goodbye", 60);
+        // }
+        //         else
+        // {
+        //     Print("Invalid command.", 70);
+        // }
+
+
+
+    }
+    static void GameLoop()
+    {
+        Location currentLocation = World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN);
+        Print($"Welcome {currentLocation.Name}.", 60);
+        Print(currentLocation.Description, 50);
+
+        while (true)
         {
-            Console.Clear();
-            Location startingLocation = World.LocationByID(World.LOCATION_ID_HOME);
-            Print($"Welcome {startingLocation.Name}.", 60);
-            Print(startingLocation.Description, 50);
-            // Print("Do you want to move to the townsquare? (Yes/No\n)", 60);
+            Print("\nWhat would you like to do? (Move/Quit)\n", 40);
+            string userInput = Console.ReadLine().ToUpper();
 
-            // if (Console.ReadLine().ToUpper() == "YES")
-            // {
-            //     MoveToLocation(World.LOCATION_ID_TOWN_SQUARE);
-
-            // }
-            // else
-            // {
-            //     Print("just say yes! What's wrong with you?", 50);
-            //     Console.ReadLine();
-            // }
-            static void GameLoop()
+            if (userInput == "QUIT")
             {
-                Location currentLocation = World.LocationByID(World.LOCATION_ID_HOME);
-                Print($"Welcome {currentLocation.Name}.", 60);
-                Print(currentLocation.Description, 50);
-
-                while (true)
-                {
-                    Print("\nWhat would you like to do? (Move/Quit)\n", 40);
-                    string userInput = Console.ReadLine().ToUpper();
-
-                    if (userInput == "QUIT")
-                    {
-                        Print("Goodbye", 60);
-                        break;
-                    }
-                    else if (userInput == "MOVE")
-                    {
-                        MoveToNewLocation(currentLocation);
-                    }
-                    else
-                    {
-                        Print("Invalid command!", 70);
-                    }
-                }
+                Print("Goodbye", 60);
+                break;
             }
-            Location newLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
-            Print($"You are now in {newLocation.Name}.", 50);
-            Print(newLocation.Description, 60);
-
-            DisplayAvaibleQuests(newLocation);
-
+            else if (userInput == "MOVE")
+            {
+                MoveToNewLocation(currentLocation);
+                DisplayAvaibleQuests(currentLocation);
+            }
+            else
+            {
+                Print("Invalid command!", 70);
+            }
         }
-        else if (Console.ReadLine().ToUpper() == "QUIT")
-        {
-            Print("Goodbye", 60);
-        }
-        else
-        {
-            Print("Invalid command.", 70);
-        }
-
-
-
     }
     static void MoveToNewLocation(Location currentLocation)
     {
