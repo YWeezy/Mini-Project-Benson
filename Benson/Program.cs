@@ -59,7 +59,7 @@ class Program
     }
     static void GameLoop()
     {
-        Location currentLocation = World.LocationByID(World.LOCATION_ID_ALCHEMISTS_GARDEN);
+        Location currentLocation = World.LocationByID(World.LOCATION_ID_HOME);
         Print($"Welcome {currentLocation.Name}.", 60);
         Print(currentLocation.Description, 50);
 
@@ -75,7 +75,7 @@ class Program
             }
             else if (userInput == "MOVE")
             {
-                MoveToNewLocation(currentLocation);
+                currentLocation = MoveToNewLocation(currentLocation);
                 DisplayAvaibleQuests(currentLocation);
             }
             else
@@ -84,9 +84,10 @@ class Program
             }
         }
     }
-    static void MoveToNewLocation(Location currentLocation)
+    static Location MoveToNewLocation(Location currentLocation)
     {
         Console.WriteLine("Where would you like to move? (Type 'North', 'East', 'South', or 'West')");
+        Maplocation(currentLocation.ID, true);
         string direction = Console.ReadLine().ToUpper();
 
         Location newLocation = null;
@@ -107,20 +108,90 @@ class Program
                 break;
             default:
                 Print("Invalid direction.", 70);
-                return;
+                break;
         }
 
         if (newLocation != null)
         {
-            currentLocation = newLocation;
-            Print($"You moved to {currentLocation.Name}.", 50);
-            Print(currentLocation.Description, 60);
+            Print($"You moved to {newLocation.Name}.", 50);
+            Print(newLocation.Description, 60);
+            return newLocation;
         }
         else
         {
             Print("There is no path in that direction.", 70);
+            return currentLocation;
         }
     }
+
+    static void Maplocation(int current_location_ID, bool show){
+        if (show){
+            switch (current_location_ID)
+        {
+            case 1:
+                Console.WriteLine("  |");
+                Console.WriteLine("  |");
+                Console.WriteLine("--|---");
+                Console.WriteLine("  +");
+                break;
+            case 2:
+                Console.WriteLine("  |");
+                Console.WriteLine("  |");
+                Console.WriteLine("--+---");
+                Console.WriteLine("  |");
+                break;
+            case 3:
+                Console.WriteLine("  |");
+                Console.WriteLine("  |");
+                Console.WriteLine("--|+--" );
+                Console.WriteLine("  |" );
+                break;
+            case 4:
+                Console.WriteLine("  |" );
+                Console.WriteLine("  +" );
+                Console.WriteLine("--|---" );
+                Console.WriteLine("  |" );
+                break;
+            case 5:
+                Console.WriteLine("  +" );
+                Console.WriteLine("  |" );
+                Console.WriteLine("--|---" );
+                Console.WriteLine("  |" );
+                break;
+            case 6:
+                Console.WriteLine("  |" );
+                Console.WriteLine("  |" );
+                Console.WriteLine("-+|---" );
+                Console.WriteLine("  |" );
+                break;
+            case 7:
+                Console.WriteLine("  |" );
+                Console.WriteLine("  |" );
+                Console.WriteLine("+-|---" );
+                Console.WriteLine("  |" );
+                break;
+
+            case 8:
+                Console.WriteLine("  |" );
+                Console.WriteLine("  |" );
+                Console.WriteLine("--|-+-" );
+                Console.WriteLine("  |" );
+                break;
+            case 9:
+                Console.WriteLine("  |" );
+                Console.WriteLine("  |" );
+                Console.WriteLine("--|--+" );
+                Console.WriteLine("  |");
+                break;
+            
+            default:
+                Console.WriteLine("No Location");
+                return;
+        }
+        }
+        
+    }
+
     static void MoveToLocation(int locationID)
     {
         Location newLocation = World.LocationByID(locationID);
