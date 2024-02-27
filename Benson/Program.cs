@@ -58,10 +58,12 @@ class Program
     static void getCompletedQuest()
     {
         List<Quest> completedquest = Quest.CompletedList();
+        Console.WriteLine("You have completed:");
         foreach(Quest quest in completedquest)
         {
             Console.WriteLine($"{quest.ID}: {quest.Name}");
         }
+        Console.WriteLine("Quest yet to complete:");
         Console.WriteLine(World.Listcount);
     }
 
