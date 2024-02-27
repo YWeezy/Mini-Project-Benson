@@ -3,7 +3,8 @@ public static class World
 
     public static readonly List<Weapon> Weapons = new List<Weapon>();
     public static readonly List<Monster> Monsters = new List<Monster>();
-    public static readonly List<Quest> Quests = new List<Quest>();
+    public static List<Quest> Quests = new List<Quest>();
+    public static int Listcount = Quests.Count;
     public static readonly List<Location> Locations = new List<Location>();
     public static readonly Random RandomGenerator = new Random();
 
@@ -166,7 +167,7 @@ public static class World
 
         return null;
     }
-
+    
     public static Weapon WeaponByID(int id)
     {
         foreach (Weapon item in Weapons)
@@ -207,6 +208,7 @@ public static class World
 
         return null;
     }
+
 }
 public class Weapon
 {

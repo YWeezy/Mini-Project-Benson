@@ -8,6 +8,7 @@ public class Quest
     public string Description { get; }
     public bool IsCompleted { get; set; }
     public List<int> LocationIds { get; set; }
+    public static List<Quest> Completed = new List<Quest>();
     
     
     public Quest(int id, string name, string description)
@@ -22,4 +23,20 @@ public class Quest
     {
         return LocationIds.Contains(locationId);
     }
+
+    public void Markcompleted()
+    {
+      if (!IsCompleted)
+      {
+        IsCompleted = true;
+        Completed.Add(this);
+      }  
+
+    }
+    public static List<Quest> CompletedList()
+    {
+        return Completed;
+    }
+
+
 }

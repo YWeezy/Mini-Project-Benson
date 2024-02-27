@@ -1,4 +1,6 @@
 using System;
+using System.Numerics;
+using System.Runtime.CompilerServices;
 
 class Program
 {
@@ -35,6 +37,7 @@ class Program
                 Console.ReadLine();
             }
             Location newLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
+  
             Print($"You are now in {newLocation.Name}.", 50);
             Print(newLocation.Description, 60);
 
@@ -50,6 +53,27 @@ class Program
             Print("Invalid command.",70);
         }
 
+
+
+    static void getCompletedQuest()
+    {
+        List<Quest> completedquest = Quest.CompletedList();
+        foreach(Quest quest in completedquest)
+        {
+            Console.WriteLine($"{quest.ID}: {quest.Name}");
+        }
+        Console.WriteLine(World.Listcount);
+    }
+
+    static void WorldCompleted()
+    {
+        List<Quest> completedquest = Quest.CompletedList();
+        if(completedquest.Count == World.Listcount)
+        {
+            Console.WriteLine("you completed the world");
+        }
+
+    }
 
 
     }
@@ -117,6 +141,6 @@ class Program
 ███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███    
 ████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀     
 ";
-            Print(asciiART, 2);
+            Print(asciiART, 100);
     }
 }
