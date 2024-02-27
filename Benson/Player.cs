@@ -4,10 +4,8 @@ public class Player
     public int Damage = 2;
     public List<List<string>> Inventory;
 
-    public Player(int hp, int damage)
+    public Player()
     {
-        HP = hp;
-        Damage = damage;
         Inventory = new List<List<string>>()
         {
             new(), // Weapons

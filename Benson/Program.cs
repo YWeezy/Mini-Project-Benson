@@ -1,14 +1,16 @@
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 class Program
 {
+    public static Player player = new Player();
     static void Main()
     {
         World.PopulateWeapons();
         World.PopulateMonsters();
         World.PopulateQuests();
         World.PopulateLocations();
-
+        
         Console.Clear();
 
         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -65,7 +67,11 @@ class Program
 
         while (true)
         {
-            Print("\nWhat would you like to do? (Move/Quit)\n", 40);
+            if (currentLocation.ActiveMonsters){
+                Print("\nWhat would you like to do? (Move/Quit/Fight)\n", 40);
+            }else{
+                Print("\nWhat would you like to do? (Move/Quit)\n", 40);
+            }
             string userInput = Console.ReadLine().ToUpper();
 
             if (userInput == "QUIT")
@@ -77,6 +83,13 @@ class Program
             {
                 currentLocation = MoveToNewLocation(currentLocation);
                 DisplayAvailableQuests(currentLocation);
+            }
+            else if (userInput == "FIGHT" && currentLocation.ActiveMonsters)
+            {
+                
+                Battle Fight = new Battle(currentLocation.MonsterLivingHere, player);
+                Fight.battleroom();
+                
             }
             else
             {
