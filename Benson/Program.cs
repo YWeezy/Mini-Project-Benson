@@ -4,6 +4,7 @@ class Program
 {
     static void Main()
     {
+
         World.PopulateWeapons();
         World.PopulateMonsters();
         World.PopulateQuests();
@@ -20,12 +21,12 @@ class Program
     static void GameLoop()
     {
         Location currentLocation = World.LocationByID(World.LOCATION_ID_HOME);
-        Print($"Welcome {currentLocation.Name}.", 60);
+        Print($"Welcome {currentLocation.Name}. ", 60);
         Print(currentLocation.Description, 50);
 
         while (true)
         {
-            Print("\nWhat would you like to do? (Move/Quit)\n", 40);
+            Print("\n> What would you like to do? (Move/Quit)\n> ", 40);
             string userInput = Console.ReadLine().ToUpper();
 
             if (userInput == "QUIT")
@@ -46,8 +47,8 @@ class Program
     }
     static Location MoveToNewLocation(Location currentLocation)
     {
-        Console.WriteLine("Where would you like to move? (Type 'North', 'East', 'South', or 'West')");
-        Maplocation(currentLocation.ID, true);
+        Print("> Where would you like to move? (Type 'North', 'East', 'South', or 'West')\n\n", 40);
+        Maplocation(currentLocation.ID, currentLocation.Name, true);
         string direction = Console.ReadLine().ToUpper();
 
         Location newLocation = null;
@@ -73,7 +74,7 @@ class Program
 
         if (newLocation != null)
         {
-            Print($"You moved to {newLocation.Name}.", 50);
+            Print($"You moved to {newLocation.Name}. ", 50);
             Print(newLocation.Description, 60);
             return newLocation;
         }
@@ -84,47 +85,62 @@ class Program
         }
     }
 
-    static void Maplocation(int current_location_ID, bool show){
+    static void Maplocation(int current_location_ID, string current_location_name, bool show){
+        Console.WriteLine($"+ Current location: {current_location_name}\n");
+        Console.WriteLine("Possibilities:");
         if (show){
             switch (current_location_ID)
         {
             case 1:
+                Console.WriteLine("> North: Town Square\n");
                 Console.WriteLine("  |");
                 Console.WriteLine("  |");
                 Console.WriteLine("--|---");
                 Console.WriteLine("  +");
                 break;
             case 2:
+                Console.WriteLine("> North: Alchemist's hut");
+                Console.WriteLine("> East: Guard post");
+                Console.WriteLine("> South: Home");
+                Console.WriteLine("> West: Farmhouse\n");
                 Console.WriteLine("  |");
                 Console.WriteLine("  |");
                 Console.WriteLine("--+---");
                 Console.WriteLine("  |");
                 break;
             case 3:
+                Console.WriteLine("> East: Bridge");
+                Console.WriteLine("> West: Town Square\n");
                 Console.WriteLine("  |");
                 Console.WriteLine("  |");
                 Console.WriteLine("--|+--" );
                 Console.WriteLine("  |" );
                 break;
             case 4:
+                Console.WriteLine("> North: Alchemist's garden");
+                Console.WriteLine("> South: Town Square\n");
                 Console.WriteLine("  |" );
                 Console.WriteLine("  +" );
                 Console.WriteLine("--|---" );
                 Console.WriteLine("  |" );
                 break;
             case 5:
+                Console.WriteLine("> South: Alchemist's hut\n");
                 Console.WriteLine("  +" );
                 Console.WriteLine("  |" );
                 Console.WriteLine("--|---" );
                 Console.WriteLine("  |" );
                 break;
             case 6:
+                Console.WriteLine("> East: Town Square");
+                Console.WriteLine("> West: Farmer's field\n");
                 Console.WriteLine("  |" );
                 Console.WriteLine("  |" );
                 Console.WriteLine("-+|---" );
                 Console.WriteLine("  |" );
                 break;
             case 7:
+                Console.WriteLine("> East: Farmhouse\n");
                 Console.WriteLine("  |" );
                 Console.WriteLine("  |" );
                 Console.WriteLine("+-|---" );
@@ -132,12 +148,15 @@ class Program
                 break;
 
             case 8:
+                Console.WriteLine("> East: Forest");
+                Console.WriteLine("> West: Guard post\n");
                 Console.WriteLine("  |" );
                 Console.WriteLine("  |" );
                 Console.WriteLine("--|-+-" );
                 Console.WriteLine("  |" );
                 break;
             case 9:
+                Console.WriteLine("> West: Bridge\n");
                 Console.WriteLine("  |" );
                 Console.WriteLine("  |" );
                 Console.WriteLine("--|--+" );
@@ -216,6 +235,6 @@ class Program
 ███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███    
 ████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀     
 ";
-        Print(asciiART, 2);
+        Print(asciiART, 1);
     }
 }
