@@ -16,46 +16,6 @@ class Program
 
         GameLoop();
 
-        // Print("Game World Initialized\n", 60);
-        // DisplayAscii();
-        // Console.WriteLine("Type 'Start' to begin the game or type 'Quit' twice to exit the game.");
-        // if (Console.ReadLine().ToUpper() == "START")
-        // {
-        //     Console.Clear();
-        //     Location startingLocation = World.LocationByID(World.LOCATION_ID_HOME);
-        //     Print($"Welcome {startingLocation.Name}.", 60);
-        //     Print(startingLocation.Description, 50);
-        // Print("Do you want to move to the townsquare? (Yes/No\n)", 60);
-
-        // if (Console.ReadLine().ToUpper() == "YES")
-        // {
-        //     MoveToLocation(World.LOCATION_ID_TOWN_SQUARE);
-
-        // }
-        // else
-        // {
-        //     Print("just say yes! What's wrong with you?", 50);
-        //     Console.ReadLine();
-        // }
-
-        //         Location newLocation = World.LocationByID(World.LOCATION_ID_TOWN_SQUARE);
-        //         Print($"You are now in {newLocation.Name}.", 50);
-        //         Print(newLocation.Description, 60);
-
-        //         DisplayAvailableQuests(newLocation);
-
-        //     }
-        //         else if (Console.ReadLine().ToUpper() == "QUIT")
-        //         {
-        //             Print("Goodbye", 60);
-        // }
-        //         else
-        // {
-        //     Print("Invalid command.", 70);
-        // }
-
-
-
     }
     static void GameLoop()
     {
