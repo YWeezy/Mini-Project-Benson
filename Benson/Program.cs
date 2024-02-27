@@ -42,7 +42,7 @@ class Program
         //         Print($"You are now in {newLocation.Name}.", 50);
         //         Print(newLocation.Description, 60);
 
-        //         DisplayAvaibleQuests(newLocation);
+        //         DisplayAvailableQuests(newLocation);
 
         //     }
         //         else if (Console.ReadLine().ToUpper() == "QUIT")
@@ -76,7 +76,7 @@ class Program
             else if (userInput == "MOVE")
             {
                 currentLocation = MoveToNewLocation(currentLocation);
-                DisplayAvaibleQuests(currentLocation);
+                DisplayAvailableQuests(currentLocation);
             }
             else
             {
@@ -197,7 +197,7 @@ class Program
         Location newLocation = World.LocationByID(locationID);
         Console.WriteLine($"Moving to {newLocation.Name}......");
     }
-    static void DisplayAvaibleQuests(Location location)
+    static void DisplayAvailableQuests(Location location)
     {
         Console.WriteLine($"Quests available in {location.Name}");
         foreach (Quest quest in World.Quests)
