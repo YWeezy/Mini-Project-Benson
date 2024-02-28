@@ -1,8 +1,11 @@
+using System;
+using System.Collections.Generic;
+
 public class Player
 {
-    public int HP = 100;
-    public int Damage = 2;
-    public List<List<string>> Inventory;
+    public int HP { get; set; }
+    public int Damage { get; set; }
+    public List<List<string>> Inventory { get; private set; }
 
     public Player(int hp, int damage)
     {
@@ -10,9 +13,9 @@ public class Player
         Damage = damage;
         Inventory = new List<List<string>>()
         {
-            new(), // Weapons
-            new(), // Potions
-            new()  // Extra
+            new List<string>(), // Weapons
+            new List<string>(), // Potions
+            new List<string>()  // Extra
         };
     }
 
@@ -24,19 +27,19 @@ public class Player
         }
         else
         {
-            Console.WriteLine("Invalid category index.");
+            Utils.Print("Invalid category index.", 70);
         }
     }
 
     public void ShowInventory()
     {
-        Console.WriteLine("Inventory:");
+        Utils.Print("Inventory:", 70);
         for (int i = 0; i < Inventory.Count; i++)
         {
-            Console.WriteLine($"Category {i}:");
+            Utils.Print($"Category {i}:", 70);
             foreach (string item in Inventory[i])
             {
-                Console.WriteLine(item);
+                Utils.Print(item, 70);
             }
         }
     }
