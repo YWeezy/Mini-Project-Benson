@@ -40,11 +40,12 @@ class Program
                 continue;
             }
 
-            Utils.Print("\n> What would you like to do? (Move/Inventory/Quit)", 40);
+            Utils.Print("\n> What would you like to do? (Move/Inventory/Quit", 40);
             if (QuestAvailableAtLocation(currentLocation))
             {
                 Utils.Print("/Accept Quest", 40);
             }
+            Utils.Print(")", 40);
             Utils.Print("\n> ", 40);
             
             string userInput = Console.ReadLine().ToUpper();
@@ -76,7 +77,7 @@ class Program
 
     static Location MoveToNewLocation(Location currentLocation)
     {
-        Utils.Print("> Where would you like to move? (Type 'North', 'East', 'South', or 'West')\n\n", 40);
+        Utils.Print("> Where would you like to move? (North/East/South/West)\n\n", 40);
         Utils.Maplocation(currentLocation.ID, currentLocation.Name, true);
         string direction = Console.ReadLine().ToUpper();
 
@@ -116,12 +117,18 @@ class Program
 
     static void DisplayAvailableQuests(Location location)
     {
-        Utils.Print($"Quests available in {location.Name}", 50);
+        bool questsAvailable = false;
+
         foreach (Quest quest in World.Quests)
         {
             if (!quest.IsCompleted && quest.IsAvailableInLocation(location.ID))
             {
-                Utils.Print($"- {quest.Name}: {quest.Description}", 50);
+                if (!questsAvailable)
+                {
+                    Utils.Print($"\n\nQuests available in {location.Name}", 50);
+                    questsAvailable = true;
+                    Utils.Print($"\n- {quest.Name}: {quest.Description}", 50);
+                }
             }
         }
     }
