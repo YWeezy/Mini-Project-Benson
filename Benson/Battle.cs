@@ -1,5 +1,6 @@
 using System;
 
+//battles class
 public class Battle
 {
     public void StartBattle(Monster monster, Weapon weapon, Player player)

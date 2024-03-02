@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+//player class
 public class Player
 {
     public int HP { get; set; }
