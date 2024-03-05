@@ -111,7 +111,7 @@ class Program
         }
         else
         {
-            Utils.Print("There is no path in that direction.", 70);
+            Utils.Print("There is no path in that directionu.", 70);
             return currentLocation;
         }
     }
