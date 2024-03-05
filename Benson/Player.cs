@@ -33,14 +33,40 @@ public class Player
 
     public void ShowInventory()
     {
-        Utils.Print("Inventory:", 70);
+        Utils.Print("\nInventory:\n", 70);
         for (int i = 0; i < Inventory.Count; i++)
         {
-            Utils.Print($"Category {i}:", 70);
-            foreach (string item in Inventory[i])
+
+            string categoryName = "";
+
+            switch (i)
             {
-                Utils.Print(item, 70);
+                case 0:
+                    categoryName = "Weapons";
+                    break;
+
+                case 1:
+                    categoryName = "Potions";
+                    break;
+
+                case 2:
+                    categoryName = "Extra";
+                    break;
             }
+
+            Utils.Print($"\n{categoryName}:\n", 70);
+
+            if (Inventory[i].Count > 0) {
+
+                foreach (string item in Inventory[i])
+                {
+                    Utils.Print($"{item}\n", 70);
+                }
+
+            } else {
+                Utils.Print("None\n", 70);
+            }
+
         }
     }
 }
