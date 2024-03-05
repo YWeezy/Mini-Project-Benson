@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.Contracts;
 using System.Linq;
 
 class Program
@@ -151,7 +152,7 @@ class Program
         Weapon weapon = World.WeaponByID(World.WEAPON_ID_RUSTY_SWORD); // Temporary weapon for now
         Battle battle = new Battle();
         battle.StartBattle(monster, weapon, player);
-
+        
         // Check if the player won the battle
         if (player.HP > 0)
         {
